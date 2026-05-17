@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chameo</title>
+    <link rel="icon" type="image/png" href="assets/chameo-icon-transparent.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-loader" aria-label="Loading Chameo"><div class="loader-mark"><img src="assets/chameo-icon-transparent.png" alt="" /></div><span>Chameo</span></div>
+
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Chameo Ad Vibe home"><img src="assets/chameo-icon-transparent.png" alt="Chameo Ad Vibe icon" /><span>Chameo</span></a>
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav class="main-nav" aria-label="Primary navigation"><a href="index.html">Home</a><a href="services.html">Services</a><a href="about.html">About us</a><a class="is-active" href="contact.html" aria-current="page">Contact Us</a></nav>
+    </header>
+
+    <main>
+      <section class="page-hero contact-hero animate-on-scroll fade-up">
+        <div>
+          <p class="eyebrow">Contact Us</p>
+          <h1 class="animate-on-scroll reveal-text"><span>Bring your creator profile or brand campaign to the Chameo desk.</span></h1>
+          <p>Share your niche, goals, and current campaign needs. We will recommend the right support path for influencer ad growth.</p>
+        </div>
+        <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1000&q=80" alt="Business team discussing a creator campaign" />
+      </section>
+
+      <section class="contact-section">
+        <aside class="contact-card animate-on-scroll slide-in-left">
+          <p class="eyebrow">Agency desk</p>
+          <h2 class="animate-on-scroll reveal-text"><span>Creator and brand enquiries</span></h2>
+          <p>Use the form for onboarding, package requests, campaign enquiries, or media kit support.</p>
+          <div class="contact-points">
+            <span><strong>Response window</strong> 24-48 business hours</span>
+            <span><strong>Best for</strong> creators, brands, agencies</span>
+            <span><strong>Focus</strong> influencer ad services</span>
+          </div>
+        </aside>
+
+        <form class="contact-form animate-on-scroll slide-in-right" aria-label="Contact form">
+          <label>Name<input type="text" name="name" placeholder="Your name" /></label>
+          <label>Email<input type="email" name="email" placeholder="you@example.com" /></label>
+          <label>I am a<select name="role"><option>Influencer</option><option>Brand</option><option>Agency partner</option></select></label>
+          <label>Interested service<select name="service"><option>Starter package</option><option>Growth package</option><option>Pro Campaign package</option><option>Custom campaign support</option></select></label>
+          <label>Message<textarea name="message" rows="5" placeholder="Tell us about your audience, niche, goals, or campaign"></textarea></label>
+          <button type="submit">Send enquiry</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <p>© 2026 Chameo. All rights reserved.</p>
+      <p>Developed by <a href="https://www.logicservices.online" target="_blank" rel="noopener noreferrer">Logic Immigration &amp; IT Service</a></p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
