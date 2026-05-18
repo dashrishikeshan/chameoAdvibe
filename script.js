@@ -1,6 +1,7 @@
 const contactForm = document.querySelector(".contact-form");
 const menuToggle = document.querySelector(".menu-toggle");
 const pageLoader = document.querySelector(".page-loader");
+const backToTop = document.querySelector(".back-to-top");
 
 if (pageLoader) {
   window.addEventListener("load", () => {
@@ -24,6 +25,19 @@ if (menuToggle) {
       menuToggle.setAttribute("aria-label", "Open menu");
     }
   });
+}
+
+if (backToTop) {
+  const toggleBackToTop = () => {
+    backToTop.classList.toggle("is-visible", window.scrollY > 420);
+  };
+
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  window.addEventListener("scroll", toggleBackToTop, { passive: true });
+  toggleBackToTop();
 }
 
 if (contactForm) {

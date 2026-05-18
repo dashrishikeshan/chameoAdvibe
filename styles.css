@@ -460,13 +460,15 @@ h3 {
 .page-hero p,
 .feature-card p,
 .price-card p,
+.audience-card p,
 .contact-card p {
   color: var(--muted);
   line-height: 1.65;
 }
 
 .feature-grid,
-.pricing-grid {
+.pricing-grid,
+.audience-card-grid {
   display: grid;
   gap: 16px;
 }
@@ -597,6 +599,141 @@ h3 {
   margin-top: auto;
 }
 
+.audience-card-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(20px, 3vw, 34px);
+}
+
+.audience-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 520px;
+  overflow: hidden;
+  padding: clamp(26px, 3vw, 38px);
+  border: 1px solid rgba(8, 60, 114, 0.14);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 26px 70px rgba(6, 79, 147, 0.14);
+  isolation: isolate;
+  transform: translateY(0) scale(1);
+  transition:
+    transform 360ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 280ms ease,
+    box-shadow 360ms ease,
+    background 360ms ease;
+}
+
+.audience-card::before {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 6px;
+  background: linear-gradient(90deg, var(--blue), var(--teal), var(--green));
+  content: "";
+  transform: scaleX(0.42);
+  transform-origin: left;
+  transition: transform 360ms ease;
+}
+
+.audience-card::after {
+  position: absolute;
+  top: -54px;
+  right: -54px;
+  z-index: -1;
+  width: 168px;
+  height: 168px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(24, 189, 50, 0.17), transparent 70%);
+  content: "";
+  opacity: 0.85;
+  transform: translate3d(0, 0, 0) scale(1);
+  transition: opacity 360ms ease, transform 360ms ease;
+}
+
+.audience-card:hover {
+  transform: translateY(-10px) scale(1.01);
+  border-color: rgba(24, 189, 50, 0.34);
+  box-shadow: 0 34px 86px rgba(6, 79, 147, 0.2);
+}
+
+.audience-card:hover::before {
+  transform: scaleX(1);
+}
+
+.audience-card:hover::after {
+  opacity: 1;
+  transform: translate3d(-14px, 12px, 0) scale(1.18);
+}
+
+.audience-card .card-icon {
+  width: 52px;
+  height: 52px;
+  margin-bottom: 24px;
+  box-shadow: 0 14px 30px rgba(6, 79, 147, 0.14);
+  transition: transform 320ms ease, box-shadow 320ms ease;
+}
+
+.audience-card:hover .card-icon {
+  transform: translateY(-4px) rotate(-2deg);
+  box-shadow: 0 20px 42px rgba(6, 79, 147, 0.2);
+}
+
+.audience-card h2 {
+  margin: 0 0 14px;
+  font-size: clamp(1.85rem, 2.8vw, 2.8rem);
+}
+
+.audience-card ul {
+  display: grid;
+  gap: 12px;
+  margin: 24px 0 28px;
+  padding: 0;
+  list-style: none;
+}
+
+.audience-card li {
+  position: relative;
+  padding-left: 28px;
+  color: #344054;
+  line-height: 1.5;
+  transition: color 220ms ease, transform 220ms ease;
+}
+
+.audience-card li::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--green);
+  content: "✓";
+  font-weight: 900;
+  transition: transform 220ms ease;
+}
+
+.audience-card:hover li {
+  color: var(--ink);
+}
+
+.audience-card:hover li:hover {
+  transform: translateX(4px);
+}
+
+.audience-card:hover li:hover::before {
+  transform: scale(1.15);
+}
+
+.audience-card .primary-action,
+.audience-card .secondary-action {
+  margin-top: auto;
+}
+
+.influencers-card {
+  background: linear-gradient(180deg, #fff 0%, rgba(237, 247, 255, 0.78) 100%);
+}
+
+.brands-card {
+  background: linear-gradient(180deg, #fff 0%, rgba(239, 252, 242, 0.82) 100%);
+}
+
 .contact-section {
   display: grid;
   grid-template-columns: minmax(280px, 0.62fr) minmax(0, 1fr);
@@ -724,6 +861,60 @@ h3 {
   outline: none;
 }
 
+.floating-actions {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 80;
+  display: grid;
+  gap: 10px;
+  justify-items: end;
+}
+
+.whatsapp-button,
+.back-to-top {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  border: 0;
+  border-radius: 999px;
+  box-shadow: 0 16px 34px rgba(8, 60, 114, 0.18);
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.whatsapp-button {
+  width: 54px;
+  height: 54px;
+  padding: 0;
+  color: #fff;
+  background: linear-gradient(135deg, #0aa84f, var(--green));
+}
+
+.whatsapp-button svg {
+  width: 30px;
+  height: 30px;
+  fill: currentColor;
+}
+
+.back-to-top {
+  width: 46px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--blue), var(--teal));
+  font-size: 1.2rem;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
 body.effects-ready .animate-on-scroll {
   opacity: 0;
   transform: translateY(18px);
@@ -774,6 +965,25 @@ body.effects-ready .animate-on-scroll.stagger.in-view > *:nth-child(4) {
 
 .reveal-text span {
   opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .audience-card,
+  .audience-card::before,
+  .audience-card::after,
+  .audience-card .card-icon,
+  .audience-card li,
+  .audience-card li::before {
+    transition: none;
+  }
+
+  .audience-card:hover,
+  .audience-card:hover::after,
+  .audience-card:hover .card-icon,
+  .audience-card:hover li:hover,
+  .audience-card:hover li:hover::before {
+    transform: none;
+  }
 }
 
 @media (max-width: 1060px) {
@@ -827,6 +1037,7 @@ body.effects-ready .animate-on-scroll.stagger.in-view > *:nth-child(4) {
   .feature-grid,
   .feature-grid.four,
   .pricing-grid,
+  .audience-card-grid,
   .contact-form {
     grid-template-columns: 1fr;
   }
@@ -852,7 +1063,7 @@ body.effects-ready .animate-on-scroll.stagger.in-view > *:nth-child(4) {
 
   .brand {
     flex: 1 1 auto;
-    font-size: clamp(0.82rem, 4vw, 0.98rem);
+    font-size: clamp(0.78rem, 3.5vw, 0.95rem);
     width: auto;
   }
 
@@ -964,6 +1175,7 @@ body.effects-ready .animate-on-scroll.stagger.in-view > *:nth-child(4) {
   .stats-band,
   .feature-grid,
   .pricing-grid,
+  .audience-card-grid,
   .contact-form {
     grid-template-columns: 1fr;
   }
@@ -975,9 +1187,14 @@ body.effects-ready .animate-on-scroll.stagger.in-view > *:nth-child(4) {
 
   .feature-card,
   .price-card,
+  .audience-card,
   .contact-card,
   .contact-form {
     padding: 20px;
+  }
+
+  .audience-card {
+    min-height: auto;
   }
 
   .contact-form button,
@@ -990,5 +1207,21 @@ body.effects-ready .animate-on-scroll.stagger.in-view > *:nth-child(4) {
   .site-footer {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .floating-actions {
+    right: 14px;
+    bottom: 14px;
+  }
+
+  .whatsapp-button {
+    width: 48px;
+    height: 48px;
+    min-height: 48px;
+  }
+
+  .back-to-top {
+    width: 42px;
+    min-height: 42px;
   }
 }
