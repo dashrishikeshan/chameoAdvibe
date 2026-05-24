@@ -1249,6 +1249,18 @@ body.effects-ready .animate-on-scroll.stagger.in-view > *:nth-child(4) {
 }
 
 @media (max-width: 1060px) {
+  /* Disable heavy background animations on mobile and tablet to optimize loading and rendering performance */
+  .bg-decorations::after {
+    animation: none !important;
+  }
+  .blob {
+    animation: none !important;
+  }
+  .particle {
+    animation: none !important;
+    display: none !important;
+  }
+
   .site-header {
     grid-template-columns: minmax(0, 1fr) auto;
   }

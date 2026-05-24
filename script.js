@@ -4,11 +4,21 @@ const pageLoader = document.querySelector(".page-loader");
 const backToTop = document.querySelector(".back-to-top");
 
 if (pageLoader) {
+  let loaderDismissed = false;
+  
+  const dismissLoader = () => {
+    if (loaderDismissed) return;
+    loaderDismissed = true;
+    pageLoader.classList.add("is-hidden");
+  };
+
+  // Hide loader when the page is fully loaded
   window.addEventListener("load", () => {
-    window.setTimeout(() => {
-      pageLoader.classList.add("is-hidden");
-    }, 450);
+    window.setTimeout(dismissLoader, 300);
   });
+
+  // Safety fallback: dismiss loader after 1200ms max to prevent blocking mobile/tablet users on slow networks
+  window.setTimeout(dismissLoader, 1200);
 }
 
 if (menuToggle) {
