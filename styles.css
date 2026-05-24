@@ -456,16 +456,18 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ffffff;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 .hero-media.logo-container img {
-  position: relative;
-  width: auto;
-  height: auto;
-  max-width: 54%;
-  max-height: 54%;
-  object-fit: contain;
+  position: relative !important;
+  width: 60% !important;
+  height: auto !important;
+  max-width: 60% !important;
+  max-height: 60% !important;
+  object-fit: contain !important;
 }
 
 .hero-media img,
