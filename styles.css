@@ -463,8 +463,8 @@ main {
   position: relative;
   width: auto;
   height: auto;
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 54%;
+  max-height: 54%;
   object-fit: contain;
 }
 
