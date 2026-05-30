@@ -56,7 +56,7 @@ if (contactForm) {
     const status = contactForm.querySelector(".form-status");
 
     if (status) {
-      status.textContent = "Thanks. Your enquiry is ready for the Chameo AdMedia team.";
+      status.textContent = "Thanks. Your enquiry is ready for the Chameo Media team.";
     }
   });
 }
