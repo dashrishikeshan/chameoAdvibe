@@ -463,11 +463,25 @@ main {
 
 .hero-media.logo-container img {
   position: relative !important;
-  width: 60% !important;
+  width: 80% !important;
   height: auto !important;
-  max-width: 60% !important;
-  max-height: 60% !important;
+  max-width: 80% !important;
+  max-height: 80% !important;
   object-fit: contain !important;
+  border-radius: 20px;
+  box-shadow: 
+    0 4px 6px -1px rgba(8, 60, 114, 0.04),
+    0 12px 24px -4px rgba(8, 60, 114, 0.06),
+    0 24px 48px -12px rgba(8, 60, 114, 0.08);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.hero-media.logo-container img:hover {
+  transform: translateY(-6px);
+  box-shadow: 
+    0 8px 12px -1px rgba(8, 60, 114, 0.05),
+    0 24px 36px -4px rgba(8, 60, 114, 0.08),
+    0 48px 72px -12px rgba(8, 60, 114, 0.12);
 }
 
 .hero-media img,
@@ -1511,5 +1525,10 @@ body.effects-ready .animate-on-scroll.stagger.in-view > *:nth-child(4) {
   .whatsapp-button svg {
     width: 27px;
     height: 27px;
+  }
+
+  .hero-media.logo-container img {
+    width: 95% !important;
+    max-width: 95% !important;
   }
 }
